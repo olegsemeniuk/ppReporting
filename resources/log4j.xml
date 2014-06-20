@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+	<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="CA" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="debug"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%t] %-5p %c %x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="logFileDebug" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="debug"/>
+		<param name="File" value="logs/testDebug.log"/>
+		<!-- log filename-->
+		<param name="MaxFileSize" value="1000KB"/>
+		<!-- max log file size to crate new log file-->
+		<param name="MaxBackupIndex" value="1000"/>
+		<!-- number of log files-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{dd.MM.yyyy - HH.mm.ss}} [%-5p] %c %M:%L (%t) %m%n"/>
+		</layout>
+	</appender>
+	<appender name="logFileInfo" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="info"/>
+		<param name="File" value="logs/testInfo.log"/>
+		<!-- log filename-->
+		<param name="MaxFileSize" value="1000KB"/>
+		<!-- max log file size to crate new log file-->
+		<param name="MaxBackupIndex" value="1000"/>
+		<!-- number of log files-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{dd.MM.yyyy - HH.mm.ss}} [%-5p] %c %M:%L (%t) %m%n"/>
+		</layout>
+	</appender>
+	<appender name="logFileWarning" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="warning"/>
+		<param name="File" value="logs/Warning.log"/>
+		<!-- log filename-->
+		<param name="MaxFileSize" value="1000KB"/>
+		<!-- max log file size to crate new log file-->
+		<param name="MaxBackupIndex" value="1000"/>
+		<!-- number of log files-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{dd.MM.yyyy - HH.mm.ss}} [%-5p] %c %M:%L (%t) %m%n"/>
+		</layout>
+	</appender>
+	<appender name="logFileError" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="error"/>
+		<param name="File" value="logs/Error.log"/>
+		<!-- log filename-->
+		<param name="MaxFileSize" value="1000KB"/>
+		<!-- max log file size to crate new log file-->
+		<param name="MaxBackupIndex" value="1000"/>
+		<!-- number of log files-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{dd.MM.yyyy - HH.mm.ss}} [%-5p] %c %M:%L (%t) %m%n"/>
+		</layout>
+	</appender>
+
+
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="logFileDebug" />
+		<appender-ref ref="logFileInfo" />
+		<appender-ref ref="logFileWarning" />
+		<appender-ref ref="logFileError" />
+
+
+		<appender-ref ref="CA" />
+	</root>
+	
+</log4j:configuration>
